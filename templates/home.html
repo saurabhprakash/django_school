@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	Homepage Content
+
+	{% for slide in slides %}
+		<a href="{{slide.landing_page}}"><img src='{{MEDIA_URL}}{{slide.image}}'/></a>
+	{% endfor %}
+{% endblock %}

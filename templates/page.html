@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	<p>Name:{{page.page_name}}</p>
+	<p>Content: {{page.content|safe}}</p>
+	<p>Title: {{page.title}}</p>
+{% endblock %}

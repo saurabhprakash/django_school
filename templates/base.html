@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    {% block head %}
+    	{% block misc_header %}{% endblock %}
+    	{% block base_css%}
+    	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" />
+        <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui-1.8.18.custom.css" type="text/css" />
+    	{% endblock %}
+    	{% block custom_css%}{% endblock %}
+    {% endblock %}
+</head>
+<body>
+<div class="hd-fixed">
+    <div id="hd" role="banner">
+      <div class="hd-wrap">  
+      {% block header %}
+        <p>Logo: <img src="{{MEDIA_URL}}{{request.session.school.logo}}"/></p>
+        <p>Name: {{request.session.school.name}}</p>
+        <p>About School: {{request.session.school.about_school}}</p>
+        {% for nav in request.session.navigation %}
+          <a href='{{nav.page_url}}'>{{nav.name}}</a>
+        {% endfor %}
+      {% endblock %}
+      <div class="clearfix"><!-- --></div>
+      </div>
+    </div>
+</div>    
+<div id="bd" class="fixed-top">
+    {% block body %}
+    
+    {% endblock %}
+    <div class="clearfix"><!-- --></div>
+</div>
+<div id="ft-wrap">
+    <div class="footer">{% block footer %}<p>&copy; Copyright 2014. Ranchi</p>{% endblock %}</div>
+</div>    
+
+{% block js %}
+<script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.7.1-min.js" ></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.8.18.custom.min.js"></script>
+{% endblock %}
+
+{% block custom_js %}{% endblock %}  
+
+
+</body>
+</html>
